@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FAF6EE">
+<title>Les Jolies Françaises — Dépôt-vente luxe & vintage à Saint-Gilles-Croix-de-Vie</title>
+<meta name="description" content="Les Jolies Françaises, dépôt-vente de luxe et vintage à Saint-Gilles-Croix-de-Vie (Vendée). Prêt-à-porter, maroquinerie, chaussures et bijoux de créateurs, sélectionnés avec soin. Déposez vos vêtements ou venez chiner nos pièces uniques.">
+<meta name="keywords" content="dépôt-vente luxe Saint-Gilles-Croix-de-Vie, vêtements vintage Vendée, friperie créateurs Saint-Gilles, dépôt-vente Vendée, seconde main luxe">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": "Les Jolies Françaises",
+  "description": "Dépôt-vente de luxe et vintage : prêt-à-porter, maroquinerie, chaussures et bijoux de créateurs, neuf et seconde main.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "33 Quai du Port Fidèle",
+    "postalCode": "85800",
+    "addressLocality": "Saint-Gilles-Croix-de-Vie",
+    "addressCountry": "FR"
+  },
+  "telephone": "+33251546575",
+  "priceRange": "€€",
+  "sameAs": ["https://facebook.com/BoutiqueLesJoliesFrancaises"],
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:30","closes":"12:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"15:00","closes":"18:30"}
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "1",
+    "bestRating": "5"
+  }
+}
+</script>
+<style>
+  :root{
+    --cream:#FAF6EE;
+    --cream-deep:#F0E7D6;
+    --white:#FFFFFF;
+    --bordeaux:#6E2A3C;
+    --bordeaux-deep:#4A1C28;
+    --gold:#B48A4E;
+    --gold-light:#E4C98A;
+    --ink:#241E1A;
+    --ink-soft:#5C5248;
+    --line: rgba(36,30,26,0.14);
+    --on-dark:#FBF6EC;
+    --on-dark-soft: rgba(251,246,236,0.82);
+    --radius: 3px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; color-scheme:light;}
+  /* Empêche le mode sombre du téléphone de réinterpréter les couleurs du site */
+  html, body{background:var(--cream) !important;}
+  input, textarea, select{color-scheme:light;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+    color:var(--ink);
+  }
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-size:0.72rem;
+    color:var(--bordeaux);
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:0.6em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 22px;
+  }
+  :focus-visible{outline:2px solid var(--bordeaux); outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,246,238,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 22px;
+    max-width:1120px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:1.22rem;
+    font-weight:500;
+    letter-spacing:0.02em;
+    color:var(--ink);
+  }
+  .brand em{font-style:italic; color:var(--bordeaux);}
+  .nav-links{
+    display:none;
+    gap:32px;
+    font-size:0.9rem;
+    letter-spacing:0.02em;
+    color:var(--ink);
+  }
+  .nav-links a{position:relative; padding:4px 0;}
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--bordeaux); transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    display:none;
+    background:var(--bordeaux); color:#fff;
+    padding:10px 20px; font-size:0.85rem; letter-spacing:0.03em;
+    border-radius:var(--radius);
+    transition:background .2s ease, transform .15s ease;
+  }
+  .nav-cta:hover{background:var(--bordeaux-deep);}
+  .burger{
+    background:none; border:none; cursor:pointer; padding:6px;
+    display:flex; flex-direction:column; gap:5px;
+  }
+  .burger span{width:24px; height:1.5px; background:var(--ink); display:block;}
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    padding:8px 22px 22px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{padding:12px 0; border-bottom:1px solid var(--line); font-size:0.98rem; color:var(--ink);}
+  .mobile-menu .nav-cta{display:inline-block; margin-top:14px; text-align:center; color:#fff;}
+
+  @media(min-width:860px){
+    .nav-links{display:flex;}
+    .nav-cta{display:inline-block;}
+    .burger{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:64px 0 56px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; top:-120px; right:-120px;
+    width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+    opacity:0.45;
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    display:grid;
+    gap:34px;
+  }
+
+  /* 3D tilt photo frame */
+  .tilt-scene{ perspective: 1200px; }
+  .hero-photo{
+    order:-1;
+    aspect-ratio: 4/3;
+    background:
+      repeating-linear-gradient(135deg, var(--cream-deep), var(--cream-deep) 12px, #E9DEC7 12px, #E9DEC7 24px);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:0.82rem;
+    padding:24px;
+    border-radius:var(--radius);
+    transform-style:preserve-3d;
+    transition:transform .25s ease, box-shadow .25s ease;
+    box-shadow: 0 18px 40px -20px rgba(36,30,26,0.35);
+    will-change:transform;
+  }
+  .hero-photo .ph-label{
+    background:rgba(255,255,255,0.92);
+    color:var(--ink);
+    padding:10px 16px;
+    border:1px dashed var(--gold);
+    line-height:1.5;
+    border-radius:var(--radius);
+    transform:translateZ(30px);
+  }
+  .hero h1{
+    font-size:2.5rem;
+    line-height:1.12;
+    margin:18px 0 16px;
+  }
+  .hero h1 em{font-style:italic; color:var(--bordeaux);}
+  .hero p.lede{
+    font-size:1.03rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin-bottom:26px;
+  }
+  .badges{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-bottom:30px;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    border:1px solid var(--line);
+    background:var(--white);
+    color:var(--ink-soft);
+    padding:8px 14px;
+    font-size:0.8rem;
+    letter-spacing:0.02em;
+    border-radius:var(--radius);
+    box-shadow:0 6px 14px -10px rgba(36,30,26,0.4);
+  }
+  .badge strong{color:var(--ink); font-weight:600;}
+  .badge .star{color:var(--gold);}
+  .cta-row{display:flex; flex-wrap:wrap; gap:14px;}
+
+  /* 3D beveled buttons */
+  .btn{
+    display:inline-block;
+    padding:14px 26px;
+    font-size:0.88rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    border-radius:var(--radius);
+    transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+    border:1px solid var(--bordeaux);
+    position:relative;
+  }
+  .btn-primary{
+    background:var(--bordeaux); color:#fff;
+    box-shadow: 0 6px 0 var(--bordeaux-deep), 0 10px 18px -8px rgba(74,28,40,0.55);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 0 var(--bordeaux-deep), 0 14px 22px -8px rgba(74,28,40,0.6);}
+  .btn-primary:active{ transform:translateY(3px); box-shadow:0 2px 0 var(--bordeaux-deep);}
+  .btn-ghost{
+    background:var(--white); color:var(--bordeaux);
+    box-shadow: 0 6px 0 var(--line), 0 10px 18px -10px rgba(36,30,26,0.3);
+  }
+  .btn-ghost:hover{ background:var(--bordeaux); color:#fff; transform:translateY(-2px);}
+  .btn-ghost:active{ transform:translateY(3px); box-shadow:0 2px 0 var(--line);}
+
+  @media(min-width:860px){
+    .hero-inner{grid-template-columns:1fr 1fr; align-items:center;}
+    .hero-photo{order:1;}
+    .hero h1{font-size:3.4rem;}
+  }
+
+  /* ---------- SEAL / SIGNATURE (embossed 3D stamp) ---------- */
+  .seal-scene{ perspective:900px; flex-shrink:0; }
+  .seal{
+    width:118px; height:118px;
+    border-radius:50%;
+    background: radial-gradient(circle at 32% 28%, #fff 0%, var(--cream-deep) 42%, #E9DEC7 100%);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    transform: rotateX(8deg) rotateY(-10deg);
+    transform-style:preserve-3d;
+    box-shadow:
+      inset 0 2px 3px rgba(255,255,255,0.9),
+      inset 0 -6px 10px rgba(36,30,26,0.18),
+      0 16px 24px -12px rgba(36,30,26,0.45);
+    transition:transform .3s ease;
+  }
+  .seal::before{
+    content:"";
+    position:absolute; inset:9px;
+    border:1px dashed var(--gold);
+    border-radius:50%;
+  }
+  .seal-scene:hover .seal{ transform: rotateX(0deg) rotateY(0deg) translateZ(6px); }
+  .seal-text{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:0.66rem;
+    text-align:center;
+    letter-spacing:0.04em;
+    color:var(--bordeaux);
+    line-height:1.5;
+    transform:translateZ(14px);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:72px 0;}
+  .section-alt{background:var(--cream-deep);}
+  .section-head{
+    max-width:640px;
+    margin-bottom:44px;
+  }
+  .section-head h2{
+    font-size:1.9rem;
+    margin-top:14px;
+  }
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1rem;}
+
+  /* Concept cards — 3D tilt on hover */
+  .concept-grid{
+    display:grid; gap:28px;
+    perspective:1000px;
+  }
+  @media(min-width:760px){ .concept-grid{grid-template-columns:repeat(3,1fr);} }
+  .concept-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:30px 26px;
+    border-radius:var(--radius);
+    transform-style:preserve-3d;
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 10px 24px -18px rgba(36,30,26,0.4);
+    will-change:transform;
+  }
+  .concept-card:hover{ box-shadow:0 20px 34px -18px rgba(36,30,26,0.4); }
+  .concept-card .icon{
+    width:38px; height:38px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+    color:var(--bordeaux);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    transform:translateZ(22px);
+    background:var(--white);
+  }
+  .concept-card h3{font-size:1.15rem; margin-bottom:10px; font-weight:500; transform:translateZ(14px);}
+  .concept-card p{color:var(--ink-soft); font-size:0.94rem; transform:translateZ(8px);}
+
+  .concept-flex{
+    display:flex; flex-direction:column; gap:22px; margin-top:52px;
+  }
+  @media(min-width:860px){ .concept-flex{flex-direction:row; align-items:center;} }
+  .seal-block{
+    display:flex; align-items:center; gap:22px;
+    background:var(--white); border:1px solid var(--line);
+    padding:26px; border-radius:var(--radius);
+    box-shadow:0 10px 24px -18px rgba(36,30,26,0.4);
+  }
+  .seal-block .txt strong{display:block; font-family:'Fraunces', serif; font-size:1.05rem; color:var(--ink); font-weight:500; margin-bottom:6px;}
+  .seal-block .txt p{font-size:0.9rem; color:var(--ink-soft);}
+
+  /* Gallery — 3D tilt */
+  .gallery-grid{
+    display:grid; gap:18px;
+    grid-template-columns:1fr 1fr;
+    perspective:1000px;
+  }
+  @media(min-width:760px){ .gallery-grid{grid-template-columns:repeat(4,1fr);} }
+  .gallery-item{
+    aspect-ratio:3/4;
+    background: linear-gradient(150deg, var(--cream-deep), #EFE3CB);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:14px;
+    gap:10px;
+    transform-style:preserve-3d;
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 10px 20px -16px rgba(36,30,26,0.4);
+    will-change:transform;
+  }
+  .gallery-item:hover{ box-shadow:0 18px 28px -16px rgba(36,30,26,0.4); }
+  .gallery-item .cat{
+    font-family:'Fraunces', serif; font-style:italic; color:var(--bordeaux);
+    font-size:1rem;
+    transform:translateZ(18px);
+  }
+  .gallery-item .ph-note{
+    font-size:0.7rem; color:var(--ink-soft);
+    border:1px dashed var(--gold); padding:6px 10px; border-radius:var(--radius);
+    background:var(--white);
+    transform:translateZ(10px);
+  }
+  .gallery-cta{
+    margin-top:34px; text-align:center;
+  }
+
+  /* Depot-vente steps */
+  .steps{
+    display:grid; gap:26px; margin-top:10px;
+  }
+  @media(min-width:760px){ .steps{grid-template-columns:repeat(3,1fr);} }
+  .step{
+    position:relative;
+    padding:32px 24px 26px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 10px 22px -18px rgba(36,30,26,0.4);
+  }
+  .step .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2.4rem;
+    color:var(--gold);
+    line-height:1;
+    margin-bottom:14px;
+    display:block;
+  }
+  .step h3{font-size:1.08rem; font-weight:500; margin-bottom:10px;}
+  .step p{font-size:0.92rem; color:var(--ink-soft);}
+  @media(min-width:760px){
+    .step:not(:last-child)::after{
+      content:"—";
+      position:absolute; right:-19px; top:38px;
+      color:var(--gold); font-size:1.2rem;
+    }
+  }
+  .note-box{
+    margin-top:36px;
+    border:1px dashed var(--gold);
+    background:var(--white);
+    padding:20px 22px;
+    border-radius:var(--radius);
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+  .note-box strong{color:var(--ink);}
+
+  /* Contact / horaires */
+  .contact-grid{
+    display:grid; gap:40px;
+  }
+  @media(min-width:900px){ .contact-grid{grid-template-columns:1fr 1fr;} }
+  .info-block{margin-bottom:28px;}
+  .info-block h4{
+    text-transform:uppercase; letter-spacing:0.12em; font-size:0.78rem;
+    color:var(--bordeaux); font-family:'Jost', sans-serif; font-weight:600;
+    margin-bottom:12px;
+  }
+  table.hours{width:100%; border-collapse:collapse; font-size:0.92rem;}
+  table.hours td{padding:8px 0; border-bottom:1px solid var(--line); color:var(--ink);}
+  table.hours td:first-child{color:var(--ink-soft); width:40%;}
+  table.hours tr.closed td:last-child{color:var(--ink-soft); font-style:italic;}
+  .contact-list{list-style:none; font-size:0.94rem;}
+  .contact-list li{padding:10px 0; border-bottom:1px solid var(--line); display:flex; gap:12px; color:var(--ink);}
+  .contact-list li span.lbl{color:var(--ink-soft); min-width:110px; flex-shrink:0;}
+  .map-wrap{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+    aspect-ratio:4/3;
+    box-shadow:0 14px 28px -20px rgba(36,30,26,0.5);
+  }
+  .map-wrap iframe{width:100%; height:100%; border:0;}
+  .pay-icons{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
+  .pay-pill{
+    border:1px solid var(--line); padding:6px 12px; font-size:0.76rem;
+    border-radius:20px; color:var(--ink-soft); background:var(--white);
+  }
+  .instore-note{font-size:0.78rem; color:var(--ink-soft); margin-top:10px; font-style:italic;}
+
+  /* Footer — solid readable contrast, no near-black */
+  footer{
+    background:var(--bordeaux);
+    color:var(--on-dark);
+    padding:48px 0 30px;
+  }
+  footer .brand{color:#fff;}
+  footer .brand em{color:var(--gold-light);}
+  .footer-top{
+    display:flex; flex-direction:column; gap:24px;
+    padding-bottom:28px; border-bottom:1px solid rgba(251,246,236,0.3);
+    margin-bottom:22px;
+  }
+  @media(min-width:760px){ .footer-top{flex-direction:row; justify-content:space-between; align-items:center;} }
+  .footer-links{display:flex; gap:22px; flex-wrap:wrap; font-size:0.86rem;}
+  .footer-links a{color:var(--on-dark);}
+  .footer-links a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    display:flex; flex-direction:column; gap:8px;
+    font-size:0.78rem; color:var(--on-dark-soft);
+  }
+  @media(min-width:760px){ .footer-bottom{flex-direction:row; justify-content:space-between;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="brand">Les Jolies <em>Françaises</em></a>
+    <nav class="nav-links">
+      <a href="#concept">Concept</a>
+      <a href="#pieces">Nos pièces</a>
+      <a href="#depot">Dépôt-vente</a>
+      <a href="#contact">Horaires & accès</a>
+    </nav>
+    <a href="tel:0251546575" class="nav-cta">02 51 54 65 75</a>
+    <button class="burger" aria-label="Ouvrir le menu" onclick="document.getElementById('mmenu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="#concept">Notre concept</a>
+    <a href="#pieces">Nos pièces</a>
+    <a href="#depot">Déposer vos vêtements</a>
+    <a href="#contact">Horaires & accès</a>
+    <a href="tel:0251546575" class="btn btn-primary nav-cta">Appeler la boutique</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Dépôt-vente luxe & vintage · Saint-Gilles-Croix-de-Vie</span>
+        <h1>Le luxe s'offre<br>une <em>seconde vie</em></h1>
+        <p class="lede">Chez Les Jolies Françaises, les plus belles pièces de grandes maisons françaises et internationales trouvent une nouvelle propriétaire — et vos vêtements précieux, une nouvelle histoire. Un concept unique en Vendée, entre prêt-à-porter, maroquinerie et haute couture.</p>
+        <div class="badges">
+          <span class="badge"><span class="star">★★★★★</span> <strong>5.0/5</strong> avis Google</span>
+          <span class="badge">Depuis <strong>2021</strong> à Saint-Gilles</span>
+          <span class="badge">Unique en <strong>Vendée</strong></span>
+        </div>
+        <div class="cta-row">
+          <a href="#pieces" class="btn btn-primary">Venez découvrir nos pièces</a>
+          <a href="#depot" class="btn btn-ghost">Déposez vos vêtements</a>
+        </div>
+      </div>
+      <div class="tilt-scene">
+        <div class="hero-photo tilt" data-tilt-max="10">
+          <div class="ph-label">📷 Photo à fournir par la boutique<br>Vitrine ou intérieur<br><em>(format 4:3 recommandé)</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section id="concept">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Notre concept</span>
+        <h2>Le meilleur de la mode,<br>choisi avec soin</h2>
+        <p>Les Jolies Françaises est un concept store qui récupère des vêtements et accessoires de luxe — du prêt-à-porter jusqu'à la haute couture — pour les proposer à des prix accessibles. Chaque pièce est sélectionnée avec exigence avant de rejoindre la boutique.</p>
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept-card tilt" data-tilt-max="8">
+          <div class="icon">01</div>
+          <h3>Un accueil qui prend le temps</h3>
+          <p>Laetitia et son équipe reçoivent chaque cliente avec attention, pour l'aider à trouver la pièce qui lui correspond vraiment — pas seulement à faire une vente.</p>
+        </div>
+        <div class="concept-card tilt" data-tilt-max="8">
+          <div class="icon">02</div>
+          <h3>Une boutique pensée pour chiner facilement</h3>
+          <p>Les vêtements sont rangés par taille, par type et par couleur, pour que la recherche reste un plaisir plutôt qu'une chasse au trésor.</p>
+        </div>
+        <div class="concept-card tilt" data-tilt-max="8">
+          <div class="icon">03</div>
+          <h3>Une sélection exigeante</h3>
+          <p>Prêt-à-porter, maroquinerie, chaussures, bijoux et accessoires de créateurs : chaque pièce est choisie pour sa qualité, puis mise en valeur en boutique.</p>
+        </div>
+      </div>
+
+      <div class="concept-flex">
+        <div class="seal-block">
+          <div class="seal-scene">
+            <div class="seal"><span class="seal-text">Pièces<br>sélectionnées<br>avec soin</span></div>
+          </div>
+          <div class="txt">
+            <strong>Neuf & seconde main, à prix justes</strong>
+            <p>Des grandes maisons françaises et internationales rendues accessibles, sans jamais transiger sur la qualité de l'accueil ni celle des pièces.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIECES / GALERIE -->
+  <section id="pieces" class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Nos pièces</span>
+        <h2>Un aperçu de ce qui vous attend</h2>
+        <p>Vêtements, maroquinerie, chaussures, bijoux et accessoires : la sélection change régulièrement. Les nouveautés sont publiées en priorité sur notre page Facebook.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item tilt" data-tilt-max="10">
+          <span class="cat">Prêt-à-porter</span>
+          <span class="ph-note">📷 Photo à ajouter</span>
+        </div>
+        <div class="gallery-item tilt" data-tilt-max="10">
+          <span class="cat">Maroquinerie</span>
+          <span class="ph-note">📷 Photo à ajouter</span>
+        </div>
+        <div class="gallery-item tilt" data-tilt-max="10">
+          <span class="cat">Chaussures</span>
+          <span class="ph-note">📷 Photo à ajouter</span>
+        </div>
+        <div class="gallery-item tilt" data-tilt-max="10">
+          <span class="cat">Bijoux & accessoires</span>
+          <span class="ph-note">📷 Photo à ajouter</span>
+        </div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="https://facebook.com/BoutiqueLesJoliesFrancaises" target="_blank" rel="noopener" class="btn btn-primary">Voir les nouveautés sur Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOT VENTE -->
+  <section id="depot">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Déposer vos vêtements</span>
+        <h2>Confiez-nous vos plus belles pièces</h2>
+        <p>Vous avez des vêtements, sacs, chaussures ou bijoux de créateurs que vous ne portez plus ? Déposez-les chez Les Jolies Françaises et laissez-nous les mettre en valeur pour vous.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="num">I</span>
+          <h3>Vous apportez vos pièces</h3>
+          <p>Présentez vos vêtements et accessoires en boutique, aux horaires d'ouverture. Notre équipe les examine avec vous.</p>
+        </div>
+        <div class="step">
+          <span class="num">II</span>
+          <h3>Nous les sélectionnons et les valorisons</h3>
+          <p>Les pièces retenues sont mises en rayon, triées et présentées avec le même soin que le reste de la collection.</p>
+        </div>
+        <div class="step">
+          <span class="num">III</span>
+          <h3>Vous êtes rémunérée à la vente</h3>
+          <p>Dès qu'une pièce trouve preneur, vous percevez votre part convenue avec la boutique.</p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>À compléter par la boutique :</strong> le détail exact du fonctionnement du dépôt-vente (taux de commission, durée de dépôt, conditions d'acceptation des pièces) sera précisé ici une fois les informations transmises.
+      </div>
+
+      <div class="cta-row" style="margin-top:32px;">
+        <a href="tel:0251546575" class="btn btn-primary">Appeler pour un dépôt</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / HORAIRES -->
+  <section id="contact" class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Horaires, accès & contact</span>
+        <h2>Venez nous rendre visite</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="info-block">
+            <h4>Horaires d'ouverture</h4>
+            <table class="hours">
+              <tr class="closed"><td>Lundi</td><td>Fermé</td></tr>
+              <tr><td>Mardi</td><td>10h30–12h30 · 15h00–18h30</td></tr>
+              <tr><td>Mercredi</td><td>10h30–12h30 · 15h00–18h30</td></tr>
+              <tr><td>Jeudi</td><td>10h30–12h30 · 15h00–18h30</td></tr>
+              <tr><td>Vendredi</td><td>10h30–12h30 · 15h00–18h30</td></tr>
+              <tr><td>Samedi</td><td>10h30–12h30 · 15h00–18h30</td></tr>
+              <tr class="closed"><td>Dimanche</td><td>Fermé</td></tr>
+            </table>
+          </div>
+
+          <div class="info-block">
+            <h4>Nous contacter</h4>
+            <ul class="contact-list">
+              <li><span class="lbl">Adresse</span> 33 Quai du Port Fidèle, 85800 Saint-Gilles-Croix-de-Vie</li>
+              <li><span class="lbl">Téléphone</span> <a href="tel:0251546575">02 51 54 65 75</a></li>
+              <li><span class="lbl">Facebook</span> <a href="https://facebook.com/BoutiqueLesJoliesFrancaises" target="_blank" rel="noopener">Boutique Les Jolies Françaises</a></li>
+              <li><span class="lbl">Accessibilité</span> Parking accessible aux personnes à mobilité réduite</li>
+            </ul>
+            <h4 style="margin-top:22px;">Règlement en boutique</h4>
+            <div class="pay-icons">
+              <span class="pay-pill">Carte bancaire</span>
+              <span class="pay-pill">Paiement mobile NFC</span>
+            </div>
+            <p class="instore-note">Site vitrine — aucun achat ni paiement en ligne. Le règlement se fait exclusivement sur place, en boutique.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps?q=33+Quai+du+Port+Fid%C3%A8le,+85800+Saint-Gilles-Croix-de-Vie&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localisation de la boutique Les Jolies Françaises"></iframe>
+          </div>
+          <div class="cta-row" style="margin-top:22px;">
+            <a href="https://www.google.com/maps?q=33+Quai+du+Port+Fid%C3%A8le,+85800+Saint-Gilles-Croix-de-Vie" target="_blank" rel="noopener" class="btn btn-ghost">Itinéraire</a>
+            <a href="tel:0251546575" class="btn btn-primary">Appeler la boutique</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#" class="brand">Les Jolies <em>Françaises</em></a>
+      <div class="footer-links">
+        <a href="#concept">Notre concept</a>
+        <a href="#pieces">Nos pièces</a>
+        <a href="#depot">Dépôt-vente</a>
+        <a href="#contact">Horaires & accès</a>
+        <a href="https://facebook.com/BoutiqueLesJoliesFrancaises" target="_blank" rel="noopener">Facebook ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>33 Quai du Port Fidèle, 85800 Saint-Gilles-Croix-de-Vie — 02 51 54 65 75</span>
+      <span>Dépôt-vente luxe & vintage à Saint-Gilles-Croix-de-Vie, en Vendée</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 3D tilt interaction — desktop only, respects reduced-motion, no-op on touch
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isTouch = window.matchMedia('(hover: none)').matches;
+    if(reduce || isTouch) return;
+
+    document.querySelectorAll('.tilt').forEach(function(el){
+      var max = parseFloat(el.getAttribute('data-tilt-max')) || 8;
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        var rx = (0.5 - py) * max * 2;
+        var ry = (px - 0.5) * max * 2;
+        el.style.transform = 'rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateZ(4px)';
+      });
+      el.addEventListener('mouseleave', function(){
+        el.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
