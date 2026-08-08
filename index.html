@@ -245,6 +245,8 @@
     box-shadow:0 6px 14px -10px rgba(36,30,26,0.4);
   }
   .badge strong{color:var(--ink); font-weight:600;}
+  .badge-link{cursor:pointer; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;}
+  .badge-link:hover{transform:translateY(-2px); box-shadow:0 10px 18px -10px rgba(36,30,26,0.4); border-color:var(--gold);}
   .badge .star{color:var(--gold);}
   .cta-row{display:flex; flex-wrap:wrap; gap:14px;}
 
@@ -480,6 +482,49 @@
   }
   .instore-note{font-size:0.78rem; color:var(--ink-soft); margin-top:10px; font-style:italic;}
 
+  /* Compteur de vues public, en direct */
+  .live-visits{
+    padding:56px 0 64px;
+    text-align:center;
+  }
+  .live-visits .eyebrow{justify-content:center;}
+  .live-visits .eyebrow::before{display:none;}
+  .live-card{
+    max-width:360px; margin:26px auto 0;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:34px 28px;
+    box-shadow:0 16px 32px -22px rgba(36,30,26,0.4);
+  }
+  .live-number{
+    font-family:'Fraunces', serif;
+    font-size:3rem;
+    color:var(--bordeaux);
+    line-height:1;
+    transition:opacity .25s ease;
+  }
+  .live-label{
+    color:var(--ink-soft); font-size:0.9rem; margin-top:10px;
+  }
+  .live-pulse{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:0.74rem; color:var(--ink-soft);
+    margin-top:16px;
+    text-transform:uppercase; letter-spacing:0.1em;
+  }
+  .live-dot{
+    width:7px; height:7px; border-radius:50%;
+    background:#4C9A5C;
+    box-shadow:0 0 0 0 rgba(76,154,92,0.6);
+    animation:pulseDot 2s infinite;
+  }
+  @keyframes pulseDot{
+    0%{box-shadow:0 0 0 0 rgba(76,154,92,0.5);}
+    70%{box-shadow:0 0 0 8px rgba(76,154,92,0);}
+    100%{box-shadow:0 0 0 0 rgba(76,154,92,0);}
+  }
+
   /* Footer — solid readable contrast, no near-black */
   footer{
     background:var(--bordeaux);
@@ -503,6 +548,25 @@
   }
   @media(min-width:760px){ .footer-bottom{flex-direction:row; justify-content:space-between;} }
 </style>
+<!--
+  ====================================================================
+  GOOGLE ANALYTICS — à activer
+  1. Créez un compte gratuit sur https://analytics.google.com
+  2. Créez une propriété GA4 pour ce site, récupérez l'ID qui
+     ressemble à "G-XXXXXXXXXX"
+  3. Remplacez les DEUX occurrences de "G-XXXXXXXXXX" ci-dessous
+     par votre véritable ID.
+  Tant que l'ID n'est pas remplacé, ce bloc ne fait rien et
+  n'affecte pas le site.
+  ====================================================================
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 
@@ -539,7 +603,7 @@
         <h1>Le luxe s'offre<br>une <em>seconde vie</em></h1>
         <p class="lede">Chez Les Jolies Françaises, les plus belles pièces de grandes maisons françaises et internationales trouvent une nouvelle propriétaire — et vos vêtements précieux, une nouvelle histoire. Un concept unique en Vendée, entre prêt-à-porter, maroquinerie et haute couture.</p>
         <div class="badges">
-          <span class="badge"><span class="star">★★★★★</span> <strong>5.0/5</strong> avis Google</span>
+          <a class="badge badge-link" href="https://www.google.com/maps/search/?api=1&query=Les+Jolies+Fran%C3%A7aises+33+Quai+du+Port+Fid%C3%A8le+Saint-Gilles-Croix-de-Vie" target="_blank" rel="noopener" aria-label="Voir les avis Google de la boutique"><span class="star">★★★★★</span> <strong>5.0/5</strong> avis Google ↗</a>
           <span class="badge">Depuis <strong>2021</strong> à Saint-Gilles</span>
           <span class="badge">Unique en <strong>Vendée</strong></span>
         </div>
@@ -725,6 +789,18 @@
     </div>
   </section>
 
+  <!-- COMPTEUR DE VUES EN DIRECT -->
+  <section class="live-visits">
+    <div class="wrap">
+      <span class="eyebrow">La confiance, ça se compte</span>
+      <div class="live-card">
+        <div class="live-number" id="liveCount">—</div>
+        <div class="live-label">personnes ont découvert la boutique en ligne</div>
+        <div class="live-pulse"><span class="live-dot"></span> En direct</div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -767,6 +843,38 @@
         el.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
       });
     });
+  })();
+</script>
+<script>
+  // Compteur de vues public — chaque chargement de page = +1 vue,
+  // affiché en direct et actualisé toutes les 20 secondes.
+  (function(){
+    var KEY = 'lesjoliesfrancaises-sgcv-visites-2026';
+    var el = document.getElementById('liveCount');
+
+    function render(value){
+      if(!el) return;
+      el.style.opacity = 0.25;
+      setTimeout(function(){
+        el.textContent = value;
+        el.style.opacity = 1;
+      }, 150);
+    }
+
+    // Compte CETTE visite (une seule fois) et affiche le total mis à jour
+    fetch('https://countapi.mileshilliard.com/api/v1/hit/' + KEY)
+      .then(function(r){ return r.json(); })
+      .then(function(data){ render(data.value); })
+      .catch(function(){ if(el) el.textContent = '—'; });
+
+    // Puis toutes les 20 secondes, on relit le total (sans le réincrémenter)
+    // pour voir en direct les vues des autres visiteurs.
+    setInterval(function(){
+      fetch('https://countapi.mileshilliard.com/api/v1/get/' + KEY)
+        .then(function(r){ return r.json(); })
+        .then(function(data){ render(data.value); })
+        .catch(function(){});
+    }, 20000);
   })();
 </script>
 
